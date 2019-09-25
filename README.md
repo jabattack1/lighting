@@ -1,4 +1,4 @@
-# Room Illuminator
+# smart-lighting-dashboard
 
 This project is a dashboard that can be used to smart lighting
 
@@ -39,3 +39,4 @@ Files are also prettified using `husky` and `prettier` as a pre-commit hook.
 
 # illuminator
 # illuminator
+# lighting
