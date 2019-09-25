@@ -3,6 +3,7 @@ import { ArcSlider, Box, Checkbox, Flex, Table, Txt } from 'rendition';
 import styled from 'styled-components';
 
 var array = [];
+var brightnessArray = [];
 
 const ControlContainer = styled(Box)`
   border-top-left-radius: 10px;
@@ -41,13 +42,7 @@ class Devices extends React.Component {
         render(value) {
           return (
             <Flex>
-              <Checkbox
-                toggle
-                checked={value}
-                onChange={console.log('love')}
-                className='room'
-                mr={2}
-              />
+              <Checkbox toggle checked={value} className='room' mr={2} />
               <Txt ml={2}>{value ? 'On' : 'Off'}</Txt>
             </Flex>
           );
@@ -95,6 +90,11 @@ class Devices extends React.Component {
     console.log('row', this);
     if (e.target.type == 'checkbox') {
       this.props.data[row.id - 1].active = !this.props.data[row.id - 1].active;
+      if (this.props.data[row.id - 1].active === true) {
+        this.props.data[row.id - 1].brightness = this.props.data[
+          row.id - 1
+        ].brightOn;
+      }
     }
 
     for (var i = 0; i < this.props.data.length; i++) {
@@ -114,6 +114,9 @@ class Devices extends React.Component {
 
     if (this.props.data[row.id - 1].active === false) {
       this.props.data[row.id - 1].selected = false;
+      this.props.data[row.id - 1].brightOn = this.props.data[
+        row.id - 1
+      ].brightness;
       this.props.data[row.id - 1].brightness = 0;
     }
 
@@ -126,7 +129,6 @@ class Devices extends React.Component {
   }
 
   doArc(e) {
-    console.log('e', e);
     for (var k in this.props.data) {
       if (
         this.props.data[k].active === true &&
@@ -139,7 +141,6 @@ class Devices extends React.Component {
           array.push(percentage);
         }
 
-        console.log('array', array);
         activeLight.brightness = percentage;
 
         if (
@@ -149,6 +150,7 @@ class Devices extends React.Component {
         ) {
           activeLight.active = false;
           activeLight.selected = !activeLight.selected;
+          this.props.data[k].brightOn = 0;
         }
 
         this.setState({ data: this.props.data });

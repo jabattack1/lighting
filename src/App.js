@@ -6,7 +6,6 @@ import { ArcSlider, Box, Checkbox, Flex, Table, Txt } from 'rendition';
 import { Nav } from './components/Nav';
 import Devices from './components/Devices';
 
-
 const GlobalStyle = createGlobalStyle([], {
   '*': {
     boxSizing: 'border-box',
@@ -31,8 +30,8 @@ const FullHeightProvider = styled(Provider)`
 `;
 
 const Heading = styled.h1`
-  margin:0 auto;
-  margin-top:20px;
+  margin: 0 auto;
+  margin-top: 20px;
 `;
 
 const SAMPLE_DATA = [
@@ -40,23 +39,26 @@ const SAMPLE_DATA = [
     id: 1,
     name: 'Balcony',
     active: false,
-    brightness: 50,
+    brightness: 0,
+    brightOn: 0,
     selected: false,
   },
   {
     id: 2,
     name: 'Bedroom 01',
     active: false,
-    brightness: 70,
+    brightness: 0,
+    brightOn: 0,
     selected: false,
   },
   {
     id: 3,
     name: 'Bedroom 02',
     active: false,
-    brightness: 30,
+    brightness: 0,
+    brightOn: 0,
     selected: false,
-  }
+  },
 ];
 
 export const App = () => {
