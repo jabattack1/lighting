@@ -70,7 +70,6 @@ class Devices extends React.Component {
           <Room id='room'></Room>
           <ArcSlider
             id='slider'
-            width='450px'
             mx='auto'
             onClick={this.setPercentage.bind(this)}
             onValueChange={this.doArc.bind(this)}
